@@ -1,0 +1,10 @@
+- separator: Popular
+- page: index.md
+  label: Guides
+- page: quickstart.md
+- separator: Core Concepts
+- page: time-navigation.md
+- page: temporal-anchoring.md
+- page: event-manipulation.md
+- group: Advanced Topics
+  directory: advanced-topics

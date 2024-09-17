@@ -1,0 +1,8 @@
+- page: index.md
+  label: Tools overview
+- page: cli.md
+  label: CLI
+- page: sdks.md
+  label: SDKs
+- page: replay.md
+  label: Replay

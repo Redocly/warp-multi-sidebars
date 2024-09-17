@@ -1,0 +1,10 @@
+/* Learn more about Realm styles: https://redocly.com/docs/realm/style/concepts/styling */
+:root .button-tone-brand {
+  background-color: var(--color-persian-green-6);
+  color: var(--text-color-on-color);
+}
+
+:root.dark .button-tone-brand {
+  background-color: var(--color-persian-green-6);
+  color: #fff;
+}

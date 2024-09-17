@@ -1,0 +1,73 @@
+# Run in spot: npx @redocly/spot run ./apis/arazzo.yaml --input token=abc
+arazzo: 1.0.0
+info:
+  title: Warp API
+  version: 1.0.0
+sourceDescriptions:
+  - name: api-reference
+    type: openapi
+    url: index.yaml
+    x-serverUrl: "http://localhost:2525/_mock/api-reference/"
+workflows:
+  - workflowId: missionLostInvention
+    summary: Lost invention
+    description: |-
+      Travel back to the year 1889 and retrieve the blueprint for Nikola Tesla’s lost invention before it’s destroyed in a mysterious fire.
+    inputs:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT Bearer token
+    parameters:
+      - name: Authorization
+        in: header
+        value: "Bearer {$inputs.token}"
+    steps:
+      - stepId: setAnchorToCurrentTime
+        operationId: api-reference.setAnchor
+        description: Set an anchor to the current time.
+        outputs:
+          anchor_id: $response.body.id
+      - stepId: createTimelineTo1889
+        operationId: api-reference.createTimeline
+        description: Create a timeline to 1889.
+        outputs:
+          timeline_id: $response.body.id
+      - stepId: travelTo1889
+        operationId: api-reference.timeTravel
+        description: Travel to 1889.
+        requestBody:
+          payload:
+            destination: $steps.createTimelineTo1889.outputs.timeline_id
+      - stepId: findAndRegisterBlueprint
+        operationId: api-reference.registerItem
+        description: Find the blueprints. Then, register them using the `registerItem` API call.
+        requestBody:
+          payload:
+            description: Tesla's blueprint
+        outputs:
+          item_id: $response.body.id
+      - stepId: avoidParadox
+        operationId: api-reference.checkParadox
+        description: Check for paradoxes.
+        requestBody:
+          payload:
+            timeline_id: $steps.createTimelineTo1889.outputs.timeline_id
+            proposed_changes:
+              - event: Sneak in to retrieve Tesla's blueprint
+                time: "1889-03-10T23:50:00Z"
+              - item_id: $steps.findAndRegisterBlueprint.outputs.item_id
+        successCriteria: 
+          - condition: $statusCode == 200
+          - condition: $.is_stable == true
+            context: $response.body
+            type: jsonpath
+      - stepId: returnToPresent
+        operationId: api-reference.timeTravel
+        description: Return to the present.
+        requestBody:
+          payload:
+            destination: $steps.setAnchorToCurrentTime.outputs.anchor_id
+            items:
+              - $steps.findAndRegisterBlueprint.outputs.item_id
