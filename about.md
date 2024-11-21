@@ -32,7 +32,7 @@ They can be organized into folders as appropriate (you can see how I organized m
 
 The source is available [on GitHub](https://github.com/redocly/warp-multi-sidebars).
 
-A project with a single sidebar is also available on Github at the [Warp Single-sidebar template](https://github.com/redocly/warp-single-sidebar).
+A project with a single sidebar is also available on GitHub at the [Warp Single-sidebar template](https://github.com/redocly/warp-single-sidebar).
 
 ```treeview
 ├── @theme
