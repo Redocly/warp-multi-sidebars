@@ -64,7 +64,6 @@ const Column = styled.div<{ isLeftColumn?: boolean }>`
 
   p {
     color: var(--color-persian-green-8);
-    font-family: SF Pro Text;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -77,7 +76,6 @@ const Column = styled.div<{ isLeftColumn?: boolean }>`
     display: flex;
     justify-content: space-between;
     width: inherit;
-    font-family: SF Pro Text;
     margin: 5px 10px 5px 16px;
 
     select {
