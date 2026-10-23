@@ -7,7 +7,7 @@
       "start": "npx @redocly/cli preview"
     },
     "dependencies": {
-        "@redocly/framework": "*"
+        "@redocly/theme": "*"
     }
   }
 
