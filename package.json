@@ -6,8 +6,6 @@
     "scripts": {
       "start": "npx @redocly/cli preview"
     },
-    "dependencies": {
-      "@redocly/realm": "*"
-    }
+    "dependencies": {}
   }
 
