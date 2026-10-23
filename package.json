@@ -6,6 +6,8 @@
     "scripts": {
       "start": "npx @redocly/cli preview"
     },
-    "dependencies": {}
+    "dependencies": {
+        "@redocly/framework": "*"
+    }
   }
 
