@@ -1,7 +1,3 @@
----
-template: ../@theme/Templates/StepByStep.tsx
----
-
 # Chapter 1 - "The Lost Invention"
 
 ## Mission Objective
@@ -14,14 +10,10 @@ Your mission begins in 1889, just days before Nikola Tesla's laboratory is set t
 
 ## Tutorial Content
 
-{% split %}
-
 ### Step 1: Establish a Temporal Anchor
 
 - Set up a temporal anchor in the present to return to after completing the mission.
 - Take note of the `id` in the response because you'll need it (`anc_mel2c9ba`) to be able to return home.
-
----
 
 **API Call Example:**
 {% openapi-code-sample operationId="setAnchor" descriptionFile="../apis/index.yaml" /%}
@@ -36,19 +28,13 @@ Your mission begins in 1889, just days before Nikola Tesla's laboratory is set t
 }
 ```
 
-{% /split %}
-
 ---
-
-{% split %}
 
 ### Step 2: Create the timeline to navigate to 1889
 
 - Use Warp’s timeline preparation API to set the destination.
 - Take note of the `id` in the response because you'll need it (`tml_tesla_mission_1`) for the next travel step.
 - You'll also need to complete your time travel within the window specified or else you may become cosmic vapor.
-
----
 
 **API Call Example:**
 {% openapi-code-sample operationId="createTimeline" descriptionFile="../apis/index.yaml" /%}
@@ -66,17 +52,11 @@ Your mission begins in 1889, just days before Nikola Tesla's laboratory is set t
 }
 ```
 
-{% /split %}
-
 ---
-
-{% split %}
 
 ### Step 3: Navigate to 1889
 
 - Use Warp’s time navigation API to travel back to the exact date of the fire.
-
----
 
 **API Call Example:**
 {% openapi-code-sample operationId="timeTravel" descriptionFile="../apis/index.yaml" /%}
@@ -89,18 +69,12 @@ Your mission begins in 1889, just days before Nikola Tesla's laboratory is set t
 }
 ```
 
-{% /split %}
-
 ---
-
-{% split %}
 
 ### Step 4: Retrieve the Blueprints
 
 - Interact with the events of the past to retrieve the blueprints. Once you find the item, you'll need to register it or you won't be able to travel back with the item.
 - Take note of the `id` in the response as you'll need it to check for paradoxes and when you travel back home.
-
----
 
 **API Call Example:**
 {% openapi-code-sample operationId="registerItem" descriptionFile="../apis/index.yaml" /%}
@@ -116,11 +90,7 @@ Your mission begins in 1889, just days before Nikola Tesla's laboratory is set t
 }
 ```
 
-{% /split %}
-
 ---
-
-{% split %}
 
 ### Step 5: Avoid Paradoxes
 
@@ -128,8 +98,6 @@ Your mission begins in 1889, just days before Nikola Tesla's laboratory is set t
   Proposed changes could be in our example items, but it could be other events that influence behaviors of the past.
   Because Tesla's blueprints are unknown, it's impossible to check for a paradox until the blueprints are found.
 - If you don't get a stable timeline in the response, then you have to continue to adjust events and items until you can product a stable timeline. Or, take a risk of changing the world forever in a possibly catasrophic way (or be vaporized on your return to the present).
-
----
 
 **API Call Example:**
 {% openapi-code-sample operationId="checkParadox" descriptionFile="../apis/index.yaml" /%}
@@ -142,17 +110,11 @@ Your mission begins in 1889, just days before Nikola Tesla's laboratory is set t
 }
 ```
 
-{% /split %}
-
 ---
-
-{% split %}
 
 ### Step 6: Return to the Present
 
 - Safely return to the present with the retrieved blueprint.
-
----
 
 **API Call Example:**
 {% replay-openapi operationId="timeTravel" descriptionFile="../apis/index.yaml"
@@ -161,8 +123,6 @@ Your mission begins in 1889, just days before Nikola Tesla's laboratory is set t
     "destination": "anc_mel2c9ba"
   }
 /%}
-
-{% /split %}
 
 ## Outcome
 
