@@ -1,7 +1,3 @@
----
-template: ../@theme/Templates/StepByStep.tsx
----
-
 # Chapter 1 - "The Lost Invention"
 
 ## Mission Objective
